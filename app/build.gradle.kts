@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,4 +73,8 @@ dependencies {
     // Mockito-Kotlin
     testImplementation ("org.mockito:mockito-core:3.12.4")
     testImplementation ("org.mockito.kotlin:mockito-kotlin:3.2.0")
+
+    //Navigation
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.8.0")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.8.0")
 }
