@@ -14,6 +14,7 @@ navigationUiKtx = "2.8.5"
 hilt_android = "2.48"
 hilt_compiler = "2.48"
 gridlayout = "1.0.0"
+glide = "4.16.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,6 +32,8 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt_compiler" }
 test-implementation = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt_android"}
 androidx-gridlayout = { group = "androidx.gridlayout", name = "gridlayout", version.ref = "gridlayout" }
+
+bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
