@@ -32,7 +32,7 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="36dp"
             android:background="@null"
             app:queryHint="Buscar en mercado libre..."
             app:iconifiedByDefault="false"
@@ -72,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRecent"
+        android:id="@+id/rvProducts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="16dp"

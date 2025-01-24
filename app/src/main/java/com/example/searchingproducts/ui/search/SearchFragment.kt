@@ -7,27 +7,55 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.searchingproducts.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.searchingproducts.databinding.FragmentSearchBinding
+import com.example.searchingproducts.ui.search.adapter.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.appcompat.widget.SearchView
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
     private val viewModel: SearchViewModel by viewModels()
+    private lateinit var binding: FragmentSearchBinding
+    private val adapter = ProductAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+    ): View {
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.searchProducts("Motorola")
+        setupRecyclerView()
+        setupSearchView()
+        setupObservers()
+    }
+
+    private fun setupRecyclerView() {
+        binding.rvProducts.apply {
+            adapter = this@SearchFragment.adapter
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
+
+    private fun setupSearchView() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { viewModel.searchProducts(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean = false
+        })
+    }
+
+    private fun setupObservers() {
         viewModel.searchResults.observe(viewLifecycleOwner) { response ->
-            Log.d("SearchFragment", "Results: ${response.results.size}")
+            adapter.setProducts(response.results)
         }
     }
 }
