@@ -6,4 +6,6 @@
     <color name="yellow_ml">#FFE600</color>
     <color name="yellow_ml_dark">#CCB800</color>
     <color name="blue_ml">#3483FA</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#929292</color>
 </resources>

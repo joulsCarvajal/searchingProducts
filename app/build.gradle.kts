@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
 }
@@ -38,6 +40,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
@@ -49,6 +57,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -77,4 +86,21 @@ dependencies {
     //Navigation
     implementation ("androidx.navigation:navigation-fragment-ktx:2.8.0")
     implementation ("androidx.navigation:navigation-ui-ktx:2.8.0")
+
+    //Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // Testing for hilt
+    testImplementation(libs.test.implementation)
+    kaptTest(libs.hilt.compiler)
+    androidTestImplementation(libs.test.implementation)
+    kaptAndroidTest(libs.hilt.compiler)
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+}
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = false
 }
