@@ -10,4 +10,6 @@ class ProductRepository @Inject constructor(
 ) {
     suspend fun searchProducts(query: String): SearchResponse = api.searchProducts(query = query)
     suspend fun getItemDetail(id: String) = api.getItemDetails(id = id)
+    suspend fun searchByCategory(categoryId: String): SearchResponse =
+        api.searchByCategory(categoryId = categoryId)
 }

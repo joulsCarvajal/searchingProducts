@@ -12,7 +12,7 @@ import com.example.searchingproducts.databinding.ItemProductBinding
 import java.text.NumberFormat
 
 class ProductAdapter (
-    private val onProductClick: (String) -> Unit
+    private val onItemClick: (productId: String, categoryId: String?) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     private var products = listOf<Product>()
@@ -62,7 +62,7 @@ class ProductAdapter (
             }
 
             binding.root.setOnClickListener {
-                onProductClick(product.id)
+                onItemClick(product.id, product.categoryId)
             }
         }
     }

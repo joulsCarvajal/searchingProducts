@@ -13,3 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+.gradle/8.9/executionHistory/executionHistory.bin
+.gradle/8.9/executionHistory/executionHistory.lock
+.gradle/8.9/fileHashes/fileHashes.bin
+.gradle/8.9/fileHashes/fileHashes.lock
+.gradle/8.9/fileHashes/resourceHashesCache.bin
+.gradle/buildOutputCleanup/buildOutputCleanup.lock

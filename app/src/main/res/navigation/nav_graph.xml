@@ -25,6 +25,11 @@
             <argument
                 android:name="query"
                 app:argType="string"/>
+            <argument
+                android:name="categoryId"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null"/>
         </action>
     </fragment>
 
@@ -38,6 +43,10 @@
         <argument
             android:name="query"
             app:argType="string"/>
+        <argument
+            android:name="categoryId"
+            app:argType="string"
+            app:nullable="true"/>
     </fragment>
 
     <fragment

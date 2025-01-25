@@ -7,5 +7,9 @@
     <color name="yellow_ml_dark">#CCB800</color>
     <color name="blue_ml">#3483FA</color>
     <color name="gray_200">#EEEEEE</color>
-    <color name="gray_300">#929292</color>
+    <color name="gray_300">#BCBCBC</color>
+    <color name="electronic">#E3F2FD</color>
+    <color name="clothing">#F3E5F5</color>
+    <color name="homeCategory">#E8F5E9</color>
+    <color name="sports">#FFF3E0</color>
 </resources>
