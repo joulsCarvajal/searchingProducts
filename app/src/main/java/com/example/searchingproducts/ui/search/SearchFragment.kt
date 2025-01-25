@@ -20,7 +20,7 @@ class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private val adapter = ProductAdapter { productId ->
         findNavController().navigate(
-            SearchFragmentDirections.actionSearchFragmentToDetailFragment(productId)
+            SearchFragmentDirections.actionSearchFragmentToProductListFragment(productId)
         )
     }
 
@@ -35,22 +35,24 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupRecyclerView()
+        /*setupRecyclerView()*/
         setupSearchView()
         setupObservers()
     }
 
-    private fun setupRecyclerView() {
+/*    private fun setupRecyclerView() {
         binding.rvProducts.apply {
             adapter = this@SearchFragment.adapter
             layoutManager = LinearLayoutManager(context)
         }
-    }
+    }*/
 
     private fun setupSearchView() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { viewModel.searchProducts(it) }
+                query?.let {
+                    findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToProductListFragment(it))
+                }
                 return true
             }
 
