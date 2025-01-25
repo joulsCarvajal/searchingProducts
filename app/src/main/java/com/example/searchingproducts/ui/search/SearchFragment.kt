@@ -12,12 +12,17 @@ import com.example.searchingproducts.databinding.FragmentSearchBinding
 import com.example.searchingproducts.ui.search.adapter.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.appcompat.widget.SearchView
+import androidx.navigation.fragment.findNavController
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
     private val viewModel: SearchViewModel by viewModels()
     private lateinit var binding: FragmentSearchBinding
-    private val adapter = ProductAdapter()
+    private val adapter = ProductAdapter { productId ->
+        findNavController().navigate(
+            SearchFragmentDirections.actionSearchFragmentToDetailFragment(productId)
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
