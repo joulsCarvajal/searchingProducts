@@ -2,4 +2,10 @@
     <string name="app_name">searchingProducts</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="electr_nicos">Electrónicos</string>
+    <string name="ropa">Ropa</string>
+    <string name="hogar_muebles">Hogar, muebles</string>
+    <string name="deportes_y_fitness">Deportes y fitness</string>
+    <string name="b_squedas_recientes">Búsquedas Recientes</string>
+    <string name="categor_as_populares">Categorías Populares</string>
 </resources>

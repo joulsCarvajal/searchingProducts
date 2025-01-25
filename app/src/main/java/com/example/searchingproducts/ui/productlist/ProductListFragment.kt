@@ -21,7 +21,7 @@ class ProductListFragment : Fragment() {
     private val viewModel: ProductListViewModel by viewModels()
     private lateinit var binding: FragmentProductListBinding
     private val args: ProductListFragmentArgs by navArgs()
-    private val adapter = ProductAdapter { productId ->
+    private val adapter = ProductAdapter { productId, categoryId ->
         findNavController().navigate(
             ProductListFragmentDirections.actionProductListFragmentToDetailFragment(productId)
         )
@@ -39,7 +39,7 @@ class ProductListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
-        viewModel.searchProducts(args.query)
+        viewModel.searchProducts(args.query, args.categoryId)
         setupObservers()
     }
 

@@ -18,10 +18,14 @@ class ProductListViewModel @Inject constructor(
     private val _searchResults = MutableLiveData<SearchResponse>()
     val searchResults: LiveData<SearchResponse> = _searchResults
 
-    fun searchProducts(query: String){
+    fun searchProducts(query: String, categoryId: String?){
         viewModelScope.launch {
             try {
-                val response = repository.searchProducts(query)
+                val response = if (categoryId != null) {
+                    repository.searchByCategory(categoryId)
+                } else {
+                    repository.searchProducts(query)
+                }
                 _searchResults.value = response
             } catch (e: Exception){
                 TODO()
