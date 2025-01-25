@@ -1,5 +1,7 @@
 package com.example.searchingproducts.data.remote.api
 
+import com.example.searchingproducts.data.remote.model.Product
+import com.example.searchingproducts.data.remote.model.ProductDetail
 import com.example.searchingproducts.data.remote.model.SearchResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -11,4 +13,9 @@ interface MercadoLibreApi {
         @Path("siteId") siteId: String = "MLA",
         @Query("q") query: String
     ) : SearchResponse
+
+    @GET("items/{id}")
+    suspend fun getItemDetails(
+        @Path("id") id: String
+    ): ProductDetail
 }

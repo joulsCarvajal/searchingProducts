@@ -11,7 +11,9 @@ import com.example.searchingproducts.data.remote.model.Product
 import com.example.searchingproducts.databinding.ItemProductBinding
 import java.text.NumberFormat
 
-class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter (
+    private val onProductClick: (String) -> Unit
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     private var products = listOf<Product>()
 
@@ -57,6 +59,10 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
                     .error(R.drawable.error_image)
                     .centerCrop()
                     .into(ivProduct)
+            }
+
+            binding.root.setOnClickListener {
+                onProductClick(product.id)
             }
         }
     }
