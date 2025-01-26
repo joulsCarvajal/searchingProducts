@@ -17,4 +17,5 @@
     <color name="homeCategoryColor">#388E3C</color>
     <color name="sports">#FFF3E0</color>
     <color name="sportscategory">#F57C00</color>
+    <color name="gray_600">#666666</color>
 </resources>
