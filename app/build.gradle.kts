@@ -101,6 +101,8 @@ dependencies {
 
     // Glide for images
     implementation(libs.bumptech.glide)
+
+    implementation ("com.airbnb.android:lottie:6.1.0")
 }
 
 kapt {
