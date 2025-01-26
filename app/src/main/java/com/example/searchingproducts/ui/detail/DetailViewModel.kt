@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.searchingproducts.data.remote.model.Product
 import com.example.searchingproducts.data.remote.model.ProductDetail
 import com.example.searchingproducts.data.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -8,4 +8,8 @@
     <string name="deportes_y_fitness">Deportes y fitness</string>
     <string name="b_squedas_recientes">Búsquedas Recientes</string>
     <string name="categor_as_populares">Categorías Populares</string>
+    <string name="buscar_productos">Buscar Productos</string>
+    <string name="color">Color</string>
+    <string name="estado">Estado</string>
+    <string name="modelo">Modelo</string>
 </resources>
