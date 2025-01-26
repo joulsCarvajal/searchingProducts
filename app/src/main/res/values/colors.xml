@@ -8,8 +8,13 @@
     <color name="blue_ml">#3483FA</color>
     <color name="gray_200">#EEEEEE</color>
     <color name="gray_300">#BCBCBC</color>
+    <color name="gray_400">#F8F9FA</color>
     <color name="electronic">#E3F2FD</color>
+    <color name="electronicategory">#1976D2</color>
     <color name="clothing">#F3E5F5</color>
+    <color name="clothingcategory">#7B1FA2</color>
     <color name="homeCategory">#E8F5E9</color>
+    <color name="homeCategoryColor">#388E3C</color>
     <color name="sports">#FFF3E0</color>
+    <color name="sportscategory">#F57C00</color>
 </resources>

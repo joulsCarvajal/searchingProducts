@@ -42,7 +42,7 @@ class DetailFragment : Fragment() {
             binding.apply {
                 tvProductName.text = product.title
                 Glide.with(requireContext())
-                    .load(product.imageUrl.replace("http://", "https://"))
+                    .load(product.imageUrl.replace("http://", "https://").replace("-I.jpg", "-F.jpg"))
                     .centerCrop()
                     .into(ivProductImageLarge)
 
@@ -51,8 +51,10 @@ class DetailFragment : Fragment() {
                     .centerCrop()
                     .into(ivProductImage)
 
-                tvProductBrand.text = "Por ${product.attributes.find { it.id == "BRAND" }?.value ?: product.attributes.find { it.id == "MANUFACTURER" }?.value ?: "Vendedor"}"
-
+                tvProductBrand.text = "Marca ${product.attributes.find { it.id == "BRAND" }?.value ?: product.attributes.find { it.id == "MANUFACTURER" }?.value ?: "Vendedor"}" ?: "N/A"
+                tvColor.text = product.attributes.find { it.id == "COLOR" }?.value ?: "N/A"
+                tvCondition.text = product.attributes.find { it.id == "ITEM_CONDITION" } ?.value ?: "N/A"
+                tvModel.text = product.attributes.find { it.id == "MODEL" } ?.value ?: "N/A"
                 btnBuy.text = "Comprar por ${formatPrice(product.price, product.currency)}"
                 btnBuy.setOnClickListener {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(product.permalink)))
