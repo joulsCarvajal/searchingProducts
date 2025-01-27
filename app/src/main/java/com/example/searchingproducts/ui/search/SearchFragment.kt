@@ -11,10 +11,13 @@ import com.example.searchingproducts.databinding.FragmentSearchBinding
 import com.example.searchingproducts.ui.search.adapter.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import com.example.searchingproducts.R
 import com.example.searchingproducts.data.remote.model.SearchResponse
 import com.example.searchingproducts.ui.UiState
+import com.google.android.material.chip.Chip
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -41,12 +44,14 @@ class SearchFragment : Fragment() {
         setupSearchView()
         setupCategoryButtons()
         setupObservers()
+        setupRecentSearches()
     }
 
     private fun setupSearchView() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
+                    viewModel.searchProducts(it)
                     findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToProductListFragment(it, null))
                 }
                 return true
@@ -80,6 +85,32 @@ class SearchFragment : Fragment() {
                 categoryId = categoryId
             )
         )
+    }
+
+    private fun setupRecentSearches() {
+        viewModel.recentSearches.observe(viewLifecycleOwner) { searches ->
+            binding.recentSearchesChipGroup.removeAllViews()
+
+            searches.forEach { search ->
+                val chip = Chip(requireContext()).apply {
+                    text = search
+                    isClickable = true
+                    setChipBackgroundColorResource(R.color.dark_surface)
+                    setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                    chipStartPadding = resources.getDimension(R.dimen.chip_padding)
+                    chipEndPadding = resources.getDimension(R.dimen.chip_padding)
+                    setOnClickListener {
+                        viewModel.searchProducts(search)
+                        findNavController().navigate(
+                            SearchFragmentDirections.actionSearchFragmentToProductListFragment(
+                                search, null
+                            )
+                        )
+                    }
+                }
+                binding.recentSearchesChipGroup.addView(chip)
+            }
+        }
     }
 
     private fun setupObservers() {
