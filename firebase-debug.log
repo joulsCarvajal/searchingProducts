@@ -1,0 +1,21 @@
+[debug] [2025-01-27T17:06:52.841Z] ----------------------------------------------------------------------
+[debug] [2025-01-27T17:06:52.842Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2025-01-27T17:06:52.843Z] CLI Version:   13.29.2
+[debug] [2025-01-27T17:06:52.843Z] Platform:      darwin
+[debug] [2025-01-27T17:06:52.843Z] Node Version:  v18.18.2
+[debug] [2025-01-27T17:06:52.844Z] Time:          Mon Jan 27 2025 12:06:52 GMT-0500 (Colombia Standard Time)
+[debug] [2025-01-27T17:06:52.844Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-27T17:06:52.847Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-27T17:06:52.847Z] > authorizing via signed-in user (juliancarvajalegc@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/Julian/Documents/MercadoLibreChallenge/searchingProducts
+

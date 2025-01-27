@@ -16,3 +16,5 @@
 local.properties
 *.lock
 *.bin
+.idea/deploymentTargetSelector.xml
+.idea/androidTestResultsUserPreferences.xml

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1002544485200",
+    "project_id": "searchingproducts",
+    "storage_bucket": "searchingproducts.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002544485200:android:8cd545aace18bdd58cd255",
+        "android_client_info": {
+          "package_name": "com.example.searchingproducts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuN7jcHShy01aHHt6otm73F0KLd_WcQ_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
