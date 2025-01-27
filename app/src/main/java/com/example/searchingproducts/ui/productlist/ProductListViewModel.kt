@@ -42,11 +42,9 @@ class ProductListViewModel @Inject constructor(
                 } else {
                     repository.searchProducts(query)
                 }
-                _uiState.value = UiState.Success(response)
+                _uiState.postValue(UiState.Success(response))
             } catch (e: Exception){
-                _uiState.value = UiState.Error(
-                    e.message ?: "Error inesperado"
-                )
+                _uiState.postValue(UiState.Error(e.message ?: "Error inesperado"))
             }
         }
     }

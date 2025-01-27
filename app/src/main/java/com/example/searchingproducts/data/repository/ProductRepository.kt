@@ -3,8 +3,10 @@ package com.example.searchingproducts.data.repository
 import com.example.searchingproducts.data.remote.api.MercadoLibreApi
 import com.example.searchingproducts.data.remote.model.Product
 import com.example.searchingproducts.data.remote.model.SearchResponse
+import com.example.searchingproducts.testing.OpenClass
 import javax.inject.Inject
 
+@OpenClass
 class ProductRepository @Inject constructor(
     private val api: MercadoLibreApi
 ) {
