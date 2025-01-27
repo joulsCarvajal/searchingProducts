@@ -4,18 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.RenderProcessGoneDetail
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.searchingproducts.databinding.FragmentSearchBinding
 import com.example.searchingproducts.ui.search.adapter.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import com.example.searchingproducts.data.remote.model.SearchResponse
+import com.example.searchingproducts.ui.UiState
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
     private val viewModel: SearchViewModel by viewModels()
-    private lateinit var binding: FragmentSearchBinding
+    private var _binding: FragmentSearchBinding? = null
+    private val binding get () = _binding!!
     private val adapter = ProductAdapter { productId, categoryId ->
         findNavController().navigate(
             SearchFragmentDirections.actionSearchFragmentToProductListFragment(productId, categoryId)
@@ -26,7 +31,7 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -78,8 +83,45 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.searchResults.observe(viewLifecycleOwner) { response ->
+        viewModel.uiState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UiState.Loading -> showLoading()
+                is UiState.Success -> showResults(state.data)
+                is UiState.Error -> showError(state.message)
+            }
+        }
+    }
+
+    private fun showLoading() {
+        binding.apply {
+            progressBar.isVisible = true
+            errorView.isVisible = false
+            categoriesGrid.isVisible = false
+        }
+    }
+
+    private fun showResults(response: SearchResponse) {
+        binding.apply {
+            progressBar.isVisible = false
+            errorView.isVisible = false
             adapter.setProducts(response.results)
         }
+    }
+
+    private fun showError(message: String) {
+        binding.apply {
+            progressBar.isVisible = false
+            errorView.isVisible = true
+            categoriesGrid.isEnabled = true
+            errorView.text = message
+            retryButton.setOnClickListener {
+                viewModel.retryLastSearch()
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.searchingproducts.data.remote.model.SearchResponse
 import com.example.searchingproducts.data.repository.ProductRepository
+import com.example.searchingproducts.ui.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,22 +20,29 @@ class SearchViewModel @Inject constructor(
     private val _searchResults = MutableLiveData<SearchResponse>()
     val searchResults: LiveData<SearchResponse> = _searchResults
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    private val _uiState = MutableLiveData<UiState<SearchResponse>>()
+    val uiState: LiveData<UiState<SearchResponse>> = _uiState
+
+    private var lastQuery: String? = null
 
     fun searchProducts(query: String) {
+        lastQuery = query
         viewModelScope.launch {
-            _isLoading.value = true
+            _uiState.value = UiState.Loading
             try {
                 val response = repository.searchProducts(query)
                 Log.d("SearchViewModel", "Products: ${response.results.size}")
                 Log.d("SearchViewModel", "First product: ${response.results.firstOrNull()}")
                 _searchResults.value = response
             } catch (e: Exception) {
+                _uiState.value = UiState.Error(e.message ?: "Error inesperado")
                 Log.e("SearchViewModel", "Error: ${e.message}")
-            } finally {
-                _isLoading.value = false
             }
         }
+    }
+
+    //Permite restaurar la última búsqueda
+    fun retryLastSearch() {
+        lastQuery?.let { searchProducts(it) }
     }
 }
