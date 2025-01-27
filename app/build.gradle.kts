@@ -6,6 +6,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
     id("org.jetbrains.kotlin.plugin.allopen") version "1.9.0"
+    id("com.google.gms.google-services")
 }
 
 allOpen {
@@ -109,6 +110,16 @@ dependencies {
     implementation(libs.bumptech.glide)
 
     implementation ("com.airbnb.android:lottie:6.1.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
+
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+
+    androidTestImplementation ("androidx.test.espresso:espresso-contrib:3.6.1")
+
+    androidTestImplementation ("androidx.test.uiautomator:uiautomator:2.2.0")
+
+    androidTestImplementation ("androidx.test:rules:1.5.0")
 }
 
 kapt {
