@@ -1,8 +1,16 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.0"
+    id("com.google.gms.google-services")
+}
+
+allOpen {
+    annotation("com.example.searchingproducts.testing.OpenClass")
 }
 
 android {
@@ -38,6 +46,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
@@ -47,6 +61,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,4 +88,41 @@ dependencies {
     // Mockito-Kotlin
     testImplementation ("org.mockito:mockito-core:3.12.4")
     testImplementation ("org.mockito.kotlin:mockito-kotlin:3.2.0")
+
+    //Navigation
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.8.0")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.8.0")
+
+    //Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // Testing for hilt
+    testImplementation(libs.test.implementation)
+    kaptTest(libs.hilt.compiler)
+    androidTestImplementation(libs.test.implementation)
+    kaptAndroidTest(libs.hilt.compiler)
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.11.0")
+
+    // Glide for images
+    implementation(libs.bumptech.glide)
+
+    implementation ("com.airbnb.android:lottie:6.1.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
+
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+
+    androidTestImplementation ("androidx.test.espresso:espresso-contrib:3.6.1")
+
+    androidTestImplementation ("androidx.test.uiautomator:uiautomator:2.2.0")
+
+    androidTestImplementation ("androidx.test:rules:1.5.0")
+}
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = false
 }
