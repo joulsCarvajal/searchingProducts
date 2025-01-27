@@ -5,6 +5,11 @@ plugins {
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.0"
+}
+
+allOpen {
+    annotation("com.example.searchingproducts.testing.OpenClass")
 }
 
 android {
@@ -98,6 +103,7 @@ dependencies {
     kaptAndroidTest(libs.hilt.compiler)
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.11.0")
 
     // Glide for images
     implementation(libs.bumptech.glide)
