@@ -35,7 +35,7 @@ class SearchViewModel @Inject constructor(
 
     fun searchProducts(query: String) {
         lastQuery = query
-        // Guardar la búsqueda reciente
+        // Guarda la búsqueda reciente
         searchPreferences.saveRecentSearch(query)
         // Recargar las búsquedas recientes
         loadRecentSearches()
@@ -45,7 +45,7 @@ class SearchViewModel @Inject constructor(
             try {
                 val response = repository.searchProducts(query)
                 _searchResults.value = response
-                _uiState.value = UiState.Success(response)  // Asegúrate de actualizar el estado
+                _uiState.value = UiState.Success(response)
             } catch (e: Exception) {
                 _uiState.value = UiState.Error(e.message ?: "Error inesperado")
                 Log.e("SearchViewModel", "Error: ${e.message}")

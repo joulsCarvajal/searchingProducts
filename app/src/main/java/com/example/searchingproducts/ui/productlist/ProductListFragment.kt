@@ -10,11 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.searchingproducts.R
 import com.example.searchingproducts.databinding.FragmentProductListBinding
 import com.example.searchingproducts.ui.ErrorViewHelper
 import com.example.searchingproducts.ui.UiState
-import com.example.searchingproducts.ui.search.SearchFragmentDirections
 import com.example.searchingproducts.ui.search.adapter.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel

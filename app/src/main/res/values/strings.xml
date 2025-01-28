@@ -12,4 +12,9 @@
     <string name="color">Color</string>
     <string name="estado">Estado</string>
     <string name="modelo">Modelo</string>
+    <string name="comprar">Comprar</string>
+    <string name="hint_for_chevrolet">For Chevrolet</string>
+    <string name="chevrolet_gp">Chevrolet Gp</string>
+    <string name="reintentar">Reintentar</string>
+    <string name="ups_algo_sali_mal">¡Ups! Algo salió mal</string>
 </resources>

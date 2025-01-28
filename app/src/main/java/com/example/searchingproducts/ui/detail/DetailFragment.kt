@@ -104,7 +104,8 @@ class DetailFragment : Fragment() {
             tvColor.text = product.attributes.find { it.id == "COLOR" }?.value ?: "N/A"
             tvCondition.text = product.attributes.find { it.id == "ITEM_CONDITION" }?.value ?: "N/A"
             tvModel.text = product.attributes.find { it.id == "MODEL" }?.value ?: "N/A"
-            btnBuy.text = "Comprar por ${formatPrice(product.price, product.currency)}"
+            tvPrice.text = formatPrice(product.price, product.currency)
+            btnBuy.text = getString(R.string.comprar)
             btnBuy.setOnClickListener {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(product.permalink)))
             }
