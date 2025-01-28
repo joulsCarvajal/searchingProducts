@@ -1,10 +1,13 @@
 package com.example.searchingproducts.di
 
+import android.content.Context
 import com.example.searchingproducts.data.remote.api.MercadoLibreApi
 import com.example.searchingproducts.data.repository.ProductRepository
+import com.example.searchingproducts.ui.search.SearchPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,4 +29,11 @@ object NetworkModule {
     @Singleton
     fun provideRepository(api: MercadoLibreApi): ProductRepository =
         ProductRepository(api)
+
+    @Provides
+    @Singleton
+    fun provideSearchPreferences(@ApplicationContext context: Context): SearchPreferences {
+        return SearchPreferences(context)
+    }
+
 }

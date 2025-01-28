@@ -18,4 +18,15 @@
     <color name="sports">#FFF3E0</color>
     <color name="sportscategory">#F57C00</color>
     <color name="gray_600">#666666</color>
+
+    <!-- Colors dark mode -->
+    <color name="dark_background">#A6A6A6</color>
+    <color name="dark_surface">#A0A0A0</color>
+
+    <!-- Colors category dark mode -->
+    <color name="electronic_dark">#1A2F44</color>
+    <color name="clothing_dark">#2C1B36</color>
+    <color name="home_dark">#1B2E1C</color>
+    <color name="sports_dark">#3D2815</color>
+
 </resources>

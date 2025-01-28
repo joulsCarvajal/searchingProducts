@@ -9,9 +9,6 @@
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/contentLayout"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="0dp"
@@ -54,7 +51,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="Chevrolet Gp"
+                        tools:text="@string/chevrolet_gp"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/iv_product_image"
@@ -66,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="32dp">
+                    android:padding="24dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -78,7 +75,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:text="For Chevrolet"
+                            tools:text="@string/hint_for_chevrolet"
                             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                             android:textColor="@color/material_on_surface_emphasis_medium"
                             android:textSize="24sp" />
@@ -93,7 +90,7 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="30dp"
-                            android:layout_height="114dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="8dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="0dp"
@@ -108,19 +105,23 @@
                                 android:padding="12dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/color"
                                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-                                    android:textColor="@color/blue_ml"/>
+                                    android:textColor="@color/blue_ml"
+                                    android:gravity="center"/>
 
                                 <TextView
                                     android:id="@+id/tvColor"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="4dp"
                                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                    android:textStyle="bold"/>
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:maxLines="2"
+                                    android:ellipsize="end"/>
 
                             </LinearLayout>
 
@@ -128,7 +129,7 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="30dp"
-                            android:layout_height="114dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="8dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="0dp"
@@ -143,19 +144,23 @@
                                 android:padding="12dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/estado"
                                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-                                    android:textColor="@color/blue_ml"/>
+                                    android:textColor="@color/blue_ml"
+                                    android:gravity="center"/>
 
                                 <TextView
                                     android:id="@+id/tvCondition"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="4dp"
                                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                    android:textStyle="bold"/>
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:maxLines="2"
+                                    android:ellipsize="end"/>
 
                             </LinearLayout>
 
@@ -163,7 +168,7 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="30dp"
-                            android:layout_height="114dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="8dp"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="0dp"
@@ -178,19 +183,23 @@
                                 android:padding="12dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/modelo"
                                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-                                    android:textColor="@color/blue_ml"/>
+                                    android:textColor="@color/blue_ml"
+                                    android:gravity="center"/>
 
                                 <TextView
                                     android:id="@+id/tvModel"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="4dp"
                                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                    android:textStyle="bold"/>
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:maxLines="2"
+                                    android:ellipsize="end"/>
 
                             </LinearLayout>
 
@@ -199,14 +208,36 @@
                     </androidx.gridlayout.widget.GridLayout>
                 </LinearLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_buy"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:backgroundTint="@color/blue_ml"
-                    android:text="Comprar"
-                    android:textColor="@android:color/white" />
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="32dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/blue_ml"
+                        tools:text="$999.99"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_buy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:layout_marginStart="16dp"
+                        android:paddingHorizontal="32dp"
+                        android:backgroundTint="@color/blue_ml"
+                        app:cornerRadius="24dp"
+                        android:text="@string/comprar"
+                        android:textColor="@android:color/white"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -236,4 +267,3 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

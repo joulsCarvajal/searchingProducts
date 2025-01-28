@@ -32,7 +32,6 @@
             app:cardCornerRadius="28dp"
             app:cardElevation="0dp"
             app:strokeWidth="1dp"
-            app:cardBackgroundColor="@color/white"
             app:strokeColor="@color/gray_300"
             app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
@@ -44,7 +43,8 @@
                 app:queryHint="Buscar en mercado libre..."
                 app:iconifiedByDefault="false"
                 app:searchIcon="@drawable/ic_search"
-                app:queryBackground="@null"/>
+                app:queryBackground="@null"
+                style="@style/SingleLineSearchView"/>
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
@@ -165,6 +165,15 @@
             app:layout_constraintTop_toBottomOf="@id/categoriesGrid"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/recentSearchesChipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="32dp"
+            app:layout_constraintTop_toBottomOf="@id/tvRecent"/>
+
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
@@ -187,7 +196,7 @@
             android:id="@+id/retryButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reintentar"
+            android:text="@string/reintentar"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/errorView"
             app:layout_constraintStart_toStartOf="parent"

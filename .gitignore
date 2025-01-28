@@ -18,3 +18,4 @@ local.properties
 *.bin
 .idea/deploymentTargetSelector.xml
 .idea/androidTestResultsUserPreferences.xml
+.gradle/buildOutputCleanup/cache.properties
