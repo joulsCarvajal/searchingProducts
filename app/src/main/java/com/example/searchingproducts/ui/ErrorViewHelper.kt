@@ -19,8 +19,4 @@ class ErrorViewHelper(
             }
         }
     }
-
-    fun hide() {
-        errorView.isVisible = false
-    }
 }

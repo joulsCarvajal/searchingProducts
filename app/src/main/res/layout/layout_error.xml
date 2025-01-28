@@ -9,7 +9,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Usamos Lottie para una animación más atractiva -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/errorAnimation"
         android:layout_width="200dp"
@@ -23,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="¡Ups! Algo salió mal"
+        android:text="@string/ups_algo_sali_mal"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
 
     <TextView
@@ -42,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Reintentar"
+        android:text="@string/reintentar"
         app:icon="@drawable/refresh"/>
 
 </LinearLayout>

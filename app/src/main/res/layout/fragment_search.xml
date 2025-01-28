@@ -43,7 +43,8 @@
                 app:queryHint="Buscar en mercado libre..."
                 app:iconifiedByDefault="false"
                 app:searchIcon="@drawable/ic_search"
-                app:queryBackground="@null"/>
+                app:queryBackground="@null"
+                style="@style/SingleLineSearchView"/>
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
@@ -195,7 +196,7 @@
             android:id="@+id/retryButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reintentar"
+            android:text="@string/reintentar"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/errorView"
             app:layout_constraintStart_toStartOf="parent"
